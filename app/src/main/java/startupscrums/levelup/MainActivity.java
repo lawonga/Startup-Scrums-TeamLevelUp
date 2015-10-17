@@ -1,9 +1,12 @@
 package startupscrums.levelup;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.parse.ParseObject;
@@ -30,7 +33,15 @@ public class MainActivity extends AppCompatActivity {
         CustomListviewAdapter customListviewAdapter = new CustomListviewAdapter(this, arrayAdapter);
         ListView listView = (ListView)findViewById(R.id.custom_listview_root);
         listView.setAdapter(customListviewAdapter);
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 1){
+                    Intent intent = new Intent(getApplicationContext(), PeersActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
 
 
         /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

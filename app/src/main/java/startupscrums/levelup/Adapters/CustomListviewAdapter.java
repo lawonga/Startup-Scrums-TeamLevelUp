@@ -28,11 +28,11 @@ public class CustomListviewAdapter extends ArrayAdapter<User> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.custom_listview_adapter, parent, false);
         }
         // Lookup views
-        TextView tvName = (TextView) convertView.findViewById(R.id.customlistview_textview_name);
-        TextView tvHome = (TextView) convertView.findViewById(R.id.customlistview_textview_description);
+        TextView textview_name = (TextView) convertView.findViewById(R.id.customlistview_textview_name);
+        TextView textview_description = (TextView) convertView.findViewById(R.id.customlistview_textview_description);
         // Populate the data into the template view using the data object
-        tvName.setText(user.name);
-        tvHome.setText(user.description);
+        textview_name.setText(user.name);
+        textview_description.setText(user.description);
         // Return the completed view to render on screen
         return convertView;
     }

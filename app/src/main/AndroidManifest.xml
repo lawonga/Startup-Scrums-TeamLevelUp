@@ -29,6 +29,11 @@
                 android:name="com.parse.ui.ParseLoginActivity.PARSE_LOGIN_ENABLED"
                 android:value="true"/>
         </activity>
+        <activity
+            android:name=".PeersActivity"
+            android:label="Peers"
+            android:parentActivityName=".MainActivity"
+            />
     </application>
 
 </manifest>
