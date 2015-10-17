@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         ParseObject testObject = new ParseObject("TestObject");
         testObject.put("foo", "bar");
         testObject.saveInBackground();
-
     }
 
     @Override
