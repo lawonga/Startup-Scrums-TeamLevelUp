@@ -8,6 +8,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+
+import startupscrums.levelup.Adapters.CustomListviewAdapter;
+import startupscrums.levelup.Adapters.User;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,17 +22,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        // setSupportActionBar(toolbar);
+        getSupportActionBar().show();
+        ArrayList<User> arrayAdapter = new ArrayList<>();
+        for (int i=0; i<51; i++){
+            arrayAdapter.add(new User("Hello", "World"));
+        }
+        CustomListviewAdapter customListviewAdapter = new CustomListviewAdapter(this, arrayAdapter);
+        ListView listView = (ListView)findViewById(R.id.custom_listview_root);
+        listView.setAdapter(customListviewAdapter);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+
+        /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        }); */
     }
 
     @Override
