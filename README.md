@@ -6,4 +6,4 @@ Team members:
 * Kevin Chua
 * Jay Kulkarni
 * Godot Bian
-* Mike Quik Strike
+* Mike Mendoza
