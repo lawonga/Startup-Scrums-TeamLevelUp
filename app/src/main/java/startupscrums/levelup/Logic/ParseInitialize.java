@@ -1,4 +1,4 @@
-package startupscrums.levelup;
+package startupscrums.levelup.Logic;
 
 import android.app.Application;
 

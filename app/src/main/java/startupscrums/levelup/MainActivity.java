@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import startupscrums.levelup.Adapters.CustomListviewAdapter;
 import startupscrums.levelup.Adapters.User;
+import startupscrums.levelup.Logic.ParseInitialize;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,9 +53,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         }); */
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
-        testObject.saveInBackground();
+
     }
 
     @Override
