@@ -11,7 +11,9 @@
         android:layout_width="164dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        card_view:cardCornerRadius="1dp">
+        card_view:cardCornerRadius="1dp"
+        card_view:cardBackgroundColor="#FFFFFF"
+>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -23,28 +25,33 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/mentor_profile_image"
                 android:layout_width="wrap_content"
-                android:layout_height="144dp"
+                android:layout_height="128dp"
                 android:layout_margin="6dp"
-                android:layout_marginTop="20dp"
-                app:civ_border_color="#FF000000"
-                app:civ_border_width="2dp" />
+                android:layout_marginTop="10dp"
+                app:civ_border_width="0dp"
+                app:civ_border_color="#FFFFFF"/>
 
             <TextView
                 android:id="@+id/course_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name of course"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
             <TextView
                 android:id="@+id/course_description"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="64dp"
                 android:text="Description"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
                 android:layout_gravity="center_horizontal"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/black" />
+                android:background="#CCCCCC" />
             <TextView
                 android:id="@+id/course_difficulty"
                 android:layout_width="wrap_content"

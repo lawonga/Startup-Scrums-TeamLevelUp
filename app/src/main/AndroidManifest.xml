@@ -69,7 +69,17 @@
         <activity
             android:name=".TimelineScreen"
             android:label="TimeLine"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.ActionBar" >
+        </activity>
+        <activity
+            android:name=".ClassScreen"
+            android:label="ClassScreen"
+            android:theme="@style/AppTheme.ActionBar" >
+        </activity>
+        <activity
+            android:name=".HelpScreen"
+            android:label="@string/title_activity_activity_helpscreen"
+            android:theme="@style/AppTheme.ActionBar" >
         </activity>
     </application>
 

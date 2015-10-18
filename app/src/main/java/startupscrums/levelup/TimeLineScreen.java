@@ -1,20 +1,29 @@
 package startupscrums.levelup;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+import startupscrums.levelup.Adapters.CustomGridViewAdapterModel;
 import startupscrums.levelup.Adapters.CustomListViewAdapterModel;
 import startupscrums.levelup.Adapters.CustomListviewAdapter;
 import startupscrums.levelup.Adapters.TimelineListViewAdapter;
@@ -30,8 +39,9 @@ public class TimelineScreen extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
-
-        // Initialize stuf
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // Initialize stuff
+        CircleImageView imageView_icon = (CircleImageView)findViewById(R.id.timeline_circleicon);
         TextView textView_name = (TextView)findViewById(R.id.timeline_course_name);
         TextView textView_description = (TextView)findViewById(R.id.timeline_course_description);
         TextView textView_difficulty = (TextView)findViewById(R.id.timeline_course_difficulty);
@@ -57,6 +67,23 @@ public class TimelineScreen extends AppCompatActivity{
 
         // Make a local temporary array adapter to put stuff we're about to query into...
         ArrayList<String> localTimeLineArrayAdapter= new ArrayList<>();
+
+        // Query the image, no time to convert byteimages efficiently
+        ParseQuery<ParseObject> bitmapQUery = ParseQuery.getQuery("Subject");
+        bitmapQUery.whereEqualTo("objectId", objectId);
+        try {
+            List<ParseObject> findQuery = bitmapQUery.find();
+            for (int i=0; i<findQuery.size(); i++){
+                ParseObject parseObject = findQuery.get(i);
+                ParseFile parseFile = parseObject.getParseFile("Image");
+                byte[] file = parseFile.getData();
+                Bitmap bmp = BitmapFactory.decodeByteArray(file, 0,
+                        file.length);
+                imageView_icon.setImageBitmap(bmp);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         // Query the timeline
         final ArrayList<TimelineListViewAdapterModel> timelineArrayList= new ArrayList<>();
@@ -90,7 +117,14 @@ public class TimelineScreen extends AppCompatActivity{
         // Prepare the listview
         TimelineListViewAdapter timelineListViewAdapter = new TimelineListViewAdapter(this, timelineArrayList);
         timeline_listview.setAdapter(timelineListViewAdapter);
-
+        timeline_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 1){
+                    startActivity(new Intent(TimelineScreen.this, ClassScreen.class));
+                }
+            }
+        });
     }
 
     @Override

@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "WELCOME", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -63,9 +64,10 @@ public class MainActivity extends AppCompatActivity
         final ArrayList<String> objectIdHolder = new ArrayList<>();
         final ArrayList<String> descriptionHolder = new ArrayList<>();
         final ArrayList<String> difficultyHolder = new ArrayList<>();
+        final ArrayList<Byte> bitmapByte = new ArrayList<>();
 
         // Code here temporary to test
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.earth);
+        // No time to make code efficient or pretty...
         final ArrayList<CustomGridViewAdapterModel> arrayAdapter = new ArrayList<>();
         ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("Subject");
         try {
@@ -73,14 +75,15 @@ public class MainActivity extends AppCompatActivity
             for (int i = 0; i < findQuery.size(); i++) {
                 String subjectName, description, difficulty, objectId;
                 ParseObject parseObject = findQuery.get(i);
+                ParseFile parseFile = parseObject.getParseFile("Image");
+                byte[] file = parseFile.getData();
+                Bitmap bmp = BitmapFactory.decodeByteArray(file, 0,
+                        file.length);
                 subjectName = parseObject.getString("subjectName");
                 description = parseObject.getString("description");
                 difficulty = parseObject.getString("difficulty");
-                Log.e("subjectName", subjectName);
-                Log.e("description", description);
-                Log.e("difficulty", difficulty);
                 objectId = parseObject.getObjectId();
-                arrayAdapter.add(new CustomGridViewAdapterModel(bitmap, subjectName, description, difficulty, objectId));
+                arrayAdapter.add(new CustomGridViewAdapterModel(bmp, subjectName, description, difficulty, objectId));
                 subjectNameHolder.add(subjectName);
                 objectIdHolder.add(objectId);
                 descriptionHolder.add(description);
@@ -101,10 +104,6 @@ public class MainActivity extends AppCompatActivity
                 clickedObjectId = objectIdHolder.get(position);
                 clickedDescription = descriptionHolder.get(position);
                 clickedDifficulty= difficultyHolder.get(position);
-                Log.e("MainActivity_objectId", clickedObjectId);
-                Log.e("clickedSubjectName", clickedSubjectName);
-                Log.e("clickedDescription", clickedDescription);
-                Log.e("clickedDifficulty", clickedDifficulty);
                 Intent intent = new Intent(MainActivity.this, TimelineScreen.class);
                 intent.putExtra("objectId", clickedObjectId);
                 intent.putExtra("clickedSubjectName", clickedSubjectName);
@@ -153,19 +152,19 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camara) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_chat) {
+            // Handle the chat action
+        } else if (id == R.id.nav_profile) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_settings) {
 
-        } else if (id == R.id.nav_manage) {
+        } /*else if (id == R.id.nav_spam) {
 
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
-        }
+        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
