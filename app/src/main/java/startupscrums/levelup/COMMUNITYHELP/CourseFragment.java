@@ -1,4 +1,4 @@
-package startupscrums.levelup.COMMUNITYHELP;
+package startupscrums.levelup.CommunityHelp;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

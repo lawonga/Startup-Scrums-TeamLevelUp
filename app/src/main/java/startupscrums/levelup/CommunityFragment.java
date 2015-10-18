@@ -32,13 +32,13 @@ public class CommunityFragment extends Fragment {
         Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.profile2);
         Bitmap bitmap3 = BitmapFactory.decodeResource(getResources(), R.drawable.profile3);
         Bitmap bitmap4 = BitmapFactory.decodeResource(getResources(), R.drawable.profile4);
-        Bitmap bitmap6 = BitmapFactory.decodeResource(getResources(), R.drawable.profile6);
+        Bitmap bitmap5 = BitmapFactory.decodeResource(getResources(), R.drawable.profile5);
 
         helpListViewAdapterModels.add(new HelpListViewAdapterModel(bitmap1, "Bob joe", "5th year, Math Major", "Help me find X", "17 answers"));
         helpListViewAdapterModels.add(new HelpListViewAdapterModel(bitmap2,  "Joe John", "3rd year, Chemistry Major", "What happens when you mix ammonia and bleach? ", "12 answers"));
         helpListViewAdapterModels.add(new HelpListViewAdapterModel(bitmap3,"Sarah joe", "5th year, Physics Major", "I need help on my lab", "5 answers"));
         helpListViewAdapterModels.add(new HelpListViewAdapterModel(bitmap4, "Bob Tiffany", "1st year, Biology Major", "Why do I run slower than a horse?", "16 answers"));
-        helpListViewAdapterModels.add(new HelpListViewAdapterModel(bitmap6, "Iron Man", "Graduate Student, Minerals", "LOL WHAT QUESTIONS", "1 answer"));
+        helpListViewAdapterModels.add(new HelpListViewAdapterModel(bitmap5, "Iron Man", "Graduate Student, Minerals", "LOL WHAT QUESTIONS", "1 answer"));
 
         helpListViewAdapter = new HelpListViewAdapter(listView.getContext(), helpListViewAdapterModels);
         listView.setAdapter(helpListViewAdapter);

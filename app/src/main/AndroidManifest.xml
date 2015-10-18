@@ -78,7 +78,7 @@
         </activity>
         <activity
             android:name=".HelpCommunityScreen"
-            android:label="MY Community"
+            android:label="My Community"
             android:theme="@style/AppTheme.ActionBar" >
         </activity>
     </application>

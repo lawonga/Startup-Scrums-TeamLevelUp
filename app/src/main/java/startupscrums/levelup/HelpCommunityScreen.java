@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-import startupscrums.levelup.COMMUNITYHELP.HelpFragment;
+import startupscrums.levelup.CommunityHelp.HelpFragment;
 
 public class HelpCommunityScreen extends AppCompatActivity {
 

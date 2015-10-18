@@ -10,11 +10,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
-import startupscrums.levelup.COMMUNITYHELP.CourseFragment;
+import startupscrums.levelup.CommunityHelp.CourseFragment;
 
 /**
  * Created by Andy W on 2015-10-18.
