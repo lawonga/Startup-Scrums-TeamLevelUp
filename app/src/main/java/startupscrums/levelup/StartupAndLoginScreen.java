@@ -12,11 +12,13 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 import java.util.List;
 
+import startupscrums.levelup.AndysCustomStuff.OldActivityMainGridView;
+
 /**
  * Created by Andy W on 2015-10-17.
  * Startup screen, includes FACEBOOK & GOOGLE+ login functions
  */
-public class StartupScreen extends AppCompatActivity {
+public class StartupAndLoginScreen extends AppCompatActivity {
     private ParseUser parseUser;
     final List<String> permissions = new ArrayList<>();
 
@@ -33,11 +35,11 @@ public class StartupScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), OldActivityMainGridView.class));
 
                 /** Does facebook -- UNCOMMENT LATER **/
                 /*
-                ParseFacebookUtils.logInWithReadPermissionsInBackground(StartupScreen.this, permissions, new LogInCallback() {
+                ParseFacebookUtils.logInWithReadPermissionsInBackground(StartupAndLoginScreen.this, permissions, new LogInCallback() {
                     @Override
                     public void done(ParseUser user, com.parse.ParseException e) {
                         if (user == null) {
@@ -46,11 +48,11 @@ public class StartupScreen extends AppCompatActivity {
                         } else if (user.isNew()) {
                             Log.d("MyApp", "User signed up and logged in through Facebook!");
                             finish();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(), old_activity.class));
                         } else {
                             Log.d("MyApp", "User logged in through Facebook!");
                             finish();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(), old_activity.class));
                         }
                     }
                 });
