@@ -15,6 +15,6 @@ public class ParseInitialize extends Application {
         // Enable Local Datastore.
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, "Zxw65WGQzFbwsmWNNOxJp9gZlpHTLHGEtJOsrFPn", "z3geS1EoG2xfvDGCz4QzhRYPbczBIi6GaMBTIbOH");
-        ParseFacebookUtils.initialize(this);
+        ParseFacebookUtils.initialize(getApplicationContext());
     }
 }
