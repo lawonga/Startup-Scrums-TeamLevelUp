@@ -29,9 +29,16 @@ public class StartupScreen extends AppCompatActivity {
         ImageView facebookImageView = (ImageView)findViewById(R.id.facebook_button);
         ImageView googleplusImageView = (ImageView)findViewById(R.id.googleplus_button);
         permissions.add("public_profile");
+
+
         facebookImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+                /** Does facebook -- UNCOMMENT LATER **/
+                /*
                 ParseFacebookUtils.logInWithReadPermissionsInBackground(StartupScreen.this, permissions, new LogInCallback() {
                     @Override
                     public void done(ParseUser user, com.parse.ParseException e) {
@@ -40,15 +47,19 @@ public class StartupScreen extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Login Cancelled", Toast.LENGTH_LONG).show();
                         } else if (user.isNew()) {
                             Log.d("MyApp", "User signed up and logged in through Facebook!");
+                            finish();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {
                             Log.d("MyApp", "User logged in through Facebook!");
+                            finish();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         }
                     }
                 });
+                */
             }
         });
+
         googleplusImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
