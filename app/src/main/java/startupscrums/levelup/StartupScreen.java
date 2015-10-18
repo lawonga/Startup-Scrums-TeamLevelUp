@@ -3,12 +3,9 @@ package startupscrums.levelup;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.parse.LogInCallback;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
 
@@ -17,6 +14,7 @@ import java.util.List;
 
 /**
  * Created by Andy W on 2015-10-17.
+ * Startup screen, includes FACEBOOK & GOOGLE+ login functions
  */
 public class StartupScreen extends AppCompatActivity {
     private ParseUser parseUser;

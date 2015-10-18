@@ -3,6 +3,7 @@ package startupscrums.levelup;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,16 +32,16 @@ public class MainActivity extends AppCompatActivity {
         // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         // setSupportActionBar(toolbar);
         getSupportActionBar().show();
-        ArrayList<User> arrayAdapter = new ArrayList<>();
+        final ArrayList<User> arrayAdapter = new ArrayList<>();
         ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("Subject");
         try {
             List<ParseObject> findQuery = parseQuery.find();
             for (int i=0; i<findQuery.size(); i++){
                 ParseObject parseObject = findQuery.get(i);
-                String CourseName = parseObject.getString("subjectName");
-                String CourseDescription = parseObject.getString("description");
-                arrayAdapter.add(new User(CourseName, CourseDescription));
-
+                String subjectName = parseObject.getString("subjectName");
+                String description = parseObject.getString("description");
+                String objectId = parseObject.getObjectId();
+                arrayAdapter.add(new User(subjectName, description, objectId));
             }
         } catch (ParseException e) {
             e.printStackTrace();
@@ -51,10 +52,11 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 1) {
-                    Intent intent = new Intent(getApplicationContext(), PeersActivity.class);
-                    startActivity(intent);
-                }
+                String objectId = arrayAdapter.get(position).getObjectId();
+                Log.e("CourseName", objectId);
+                Intent intent = new Intent(getApplicationContext(), DescriptionScreen.class);
+                intent.putExtra("objectId", objectId);
+                startActivity(intent);
             }
         });
 
