@@ -15,6 +15,7 @@
             android:id="@+id/community_circleimageview"/>
 
         <LinearLayout
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,11 +61,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
+            android:background="#22B573"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Write Answer"
+            android:layout_margin="10dp"
             android:layout_marginLeft="5dp"
-            android:id="@+id/community_button"/>
+            android:layout_marginRight="5dp"
+            android:minWidth="130dp"
+            android:id="@+id/community_button"
+            android:textColor="#FFFFFF"/>
         <TextView
             android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"

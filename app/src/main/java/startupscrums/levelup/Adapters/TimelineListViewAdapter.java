@@ -36,6 +36,7 @@ public class TimelineListViewAdapter extends ArrayAdapter<TimelineListViewAdapte
         // Populate the data into the template view using the data object
         // Change to checkbox when i get it..
         /** timeline_checkbox.setImageBitmap(); **/
+        timeline_checkbox.setImageDrawable(timelineListViewAdapterModel.timelineDrawable);
         textview_description.setText(timelineListViewAdapterModel.timelineDescription);
         if (timelineListViewAdapterModel.timelineDescription.equals("Week 1") || timelineListViewAdapterModel.timelineDescription.equals("Week 2")){
             textview_description.setTypeface(null, Typeface.BOLD);

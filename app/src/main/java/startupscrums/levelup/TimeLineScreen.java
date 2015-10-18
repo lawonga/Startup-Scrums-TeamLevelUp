@@ -9,8 +9,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,9 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import startupscrums.levelup.Adapters.CustomGridViewAdapterModel;
-import startupscrums.levelup.Adapters.CustomListViewAdapterModel;
-import startupscrums.levelup.Adapters.CustomListviewAdapter;
 import startupscrums.levelup.Adapters.TimelineListViewAdapter;
 import startupscrums.levelup.Adapters.TimelineListViewAdapterModel;
 
@@ -111,7 +106,22 @@ public class TimelineScreen extends AppCompatActivity{
             Log.e("BLAH", "BLAH");
         }
         for (int i = 0; i < localTimeLineArrayAdapter.size(); i++){
-            timelineArrayList.add(new TimelineListViewAdapterModel(localTimeLineArrayAdapter.get(i)));
+            if (i ==0){
+                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinegreen), localTimeLineArrayAdapter.get(i)));
+            } else if (i > 0 && i <6) {
+                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinegreenmiddle), localTimeLineArrayAdapter.get(i)));
+            } else if (i == 6){
+                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinemiddle), localTimeLineArrayAdapter.get(i)));
+            } else if (i == 7){
+                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinebottom), localTimeLineArrayAdapter.get(i)));
+            } else if (i == 9){
+                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinetop), localTimeLineArrayAdapter.get(i)));
+            } else if (i >9 && i <14){
+                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinemiddle), localTimeLineArrayAdapter.get(i)));
+            } else if (i==localTimeLineArrayAdapter.size()){
+                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinebottom), localTimeLineArrayAdapter.get(i)));
+            }
+
         }
 
         // Prepare the listview
@@ -121,7 +131,7 @@ public class TimelineScreen extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 1){
-                    startActivity(new Intent(TimelineScreen.this, ClassScreen.class));
+                    startActivity(new Intent(TimelineScreen.this, CourseScreen.class));
                 }
             }
         });

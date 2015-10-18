@@ -22,7 +22,7 @@ public class PeersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.custom_gridview);
         ArrayList<CustomGridViewAdapterModel> arrayAdapter = new ArrayList<>();
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.earth);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.contact);
         /*for (int i=0; i<51; i++){
             arrayAdapter.add(new CustomGridViewAdapterModel(bitmap, "PERSON "+i));
         }*/

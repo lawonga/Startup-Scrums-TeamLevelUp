@@ -35,7 +35,7 @@ public class StartupAndLoginScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getApplicationContext(), OldActivityMainListView.class));
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
                 /** Does facebook -- UNCOMMENT LATER **/
                 /*

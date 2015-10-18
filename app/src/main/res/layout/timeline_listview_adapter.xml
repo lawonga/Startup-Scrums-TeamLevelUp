@@ -4,15 +4,15 @@
     android:layout_height="match_parent"
     android:background="@color/backGround">
 <ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_width="48dp"
+    android:layout_height="48dp"
     android:id="@+id/timelineadapter_checkbox"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/timelineadapter_course_description"
         android:text="Sample Text"
-        android:textSize="20dp"
-        android:layout_margin="10dp"/>
+        android:textSize="14dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
 </LinearLayout>

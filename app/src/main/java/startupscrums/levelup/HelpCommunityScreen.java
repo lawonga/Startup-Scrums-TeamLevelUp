@@ -1,11 +1,9 @@
 package startupscrums.levelup;
 
-import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,7 +18,9 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-public class HelpScreen extends AppCompatActivity {
+import startupscrums.levelup.COMMUNITYHELP.HelpFragment;
+
+public class HelpCommunityScreen extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -107,7 +107,7 @@ public class HelpScreen extends AppCompatActivity {
                 case 0:
                     return new CommunityFragment();
                 case 1:
-                    return PlaceholderFragment.newInstance(2);
+                    return new HelpFragment();
             }
             return null;
         }

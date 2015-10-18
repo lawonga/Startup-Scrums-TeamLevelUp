@@ -68,17 +68,17 @@
         </activity>
         <activity
             android:name=".TimelineScreen"
-            android:label="TimeLine"
+            android:label="My Timeline"
             android:theme="@style/AppTheme.ActionBar" >
         </activity>
         <activity
-            android:name=".ClassScreen"
-            android:label="ClassScreen"
+            android:name=".CourseScreen"
+            android:label="My Class"
             android:theme="@style/AppTheme.ActionBar" >
         </activity>
         <activity
-            android:name=".HelpScreen"
-            android:label="@string/title_activity_activity_helpscreen"
+            android:name=".HelpCommunityScreen"
+            android:label="MY Community"
             android:theme="@style/AppTheme.ActionBar" >
         </activity>
     </application>

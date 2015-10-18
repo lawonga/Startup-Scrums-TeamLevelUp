@@ -28,12 +28,17 @@ public class CommunityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.community_fragment, container, false);
         listView = (ListView)rootView.findViewById(R.id.community_listview);
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.earth);
+        Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.profile1);
+        Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.profile2);
+        Bitmap bitmap3 = BitmapFactory.decodeResource(getResources(), R.drawable.profile3);
+        Bitmap bitmap4 = BitmapFactory.decodeResource(getResources(), R.drawable.profile4);
+        Bitmap bitmap6 = BitmapFactory.decodeResource(getResources(), R.drawable.profile6);
 
-        helpListViewAdapterModels.add(new HelpListViewAdapterModel(bitmap, "Bob joe", "5th year, Math Major", "PLS HELP", "17 answers"));
-        helpListViewAdapterModels.add(new HelpListViewAdapterModel(bitmap, "Joe John", "3rd year, Chemistry Major", "PLS HELP", "12 answers"));
-        helpListViewAdapterModels.add(new HelpListViewAdapterModel(bitmap, "Sarah joe", "5th year, Physics Major", "PLS HELP", "5 answers"));
-        helpListViewAdapterModels.add(new HelpListViewAdapterModel(bitmap, "Bob Tiffany", "1st year, Biology Major", "PLS HELP", "16 answers"));
+        helpListViewAdapterModels.add(new HelpListViewAdapterModel(bitmap1, "Bob joe", "5th year, Math Major", "Help me find X", "17 answers"));
+        helpListViewAdapterModels.add(new HelpListViewAdapterModel(bitmap2,  "Joe John", "3rd year, Chemistry Major", "What happens when you mix ammonia and bleach? ", "12 answers"));
+        helpListViewAdapterModels.add(new HelpListViewAdapterModel(bitmap3,"Sarah joe", "5th year, Physics Major", "I need help on my lab", "5 answers"));
+        helpListViewAdapterModels.add(new HelpListViewAdapterModel(bitmap4, "Bob Tiffany", "1st year, Biology Major", "Why do I run slower than a horse?", "16 answers"));
+        helpListViewAdapterModels.add(new HelpListViewAdapterModel(bitmap6, "Iron Man", "Graduate Student, Minerals", "LOL WHAT QUESTIONS", "1 answer"));
 
         helpListViewAdapter = new HelpListViewAdapter(listView.getContext(), helpListViewAdapterModels);
         listView.setAdapter(helpListViewAdapter);
