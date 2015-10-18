@@ -1,10 +1,12 @@
 package startupscrums.levelup;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.parse.ParseException;
@@ -24,8 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import startupscrums.levelup.Adapters.CustomGridViewAdapter;
-import startupscrums.levelup.Adapters.Subject;
-import startupscrums.levelup.Adapters.User;
+import startupscrums.levelup.Adapters.CustomGridViewAdapterModel;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -56,29 +58,61 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         /** END OF GENERATED CODE **/
+        // No time for beautiful code, i'm gonna be lazy because its 2am
+        final ArrayList<String> subjectNameHolder = new ArrayList<>();
+        final ArrayList<String> objectIdHolder = new ArrayList<>();
+        final ArrayList<String> descriptionHolder = new ArrayList<>();
+        final ArrayList<String> difficultyHolder = new ArrayList<>();
+
         // Code here temporary to test
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.earth);
-        String subjectName, description, difficulty, objectId;
-        final ArrayList<Subject> arrayAdapter = new ArrayList<>();
+        final ArrayList<CustomGridViewAdapterModel> arrayAdapter = new ArrayList<>();
         ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("Subject");
         try {
             List<ParseObject> findQuery = parseQuery.find();
-            for (int i=0; i<findQuery.size(); i++){
+            for (int i = 0; i < findQuery.size(); i++) {
+                String subjectName, description, difficulty, objectId;
                 ParseObject parseObject = findQuery.get(i);
                 subjectName = parseObject.getString("subjectName");
                 description = parseObject.getString("description");
                 difficulty = parseObject.getString("difficulty");
-
+                Log.e("subjectName", subjectName);
+                Log.e("description", description);
+                Log.e("difficulty", difficulty);
                 objectId = parseObject.getObjectId();
-                arrayAdapter.add(new Subject(bitmap, subjectName, description, difficulty, objectId));
+                arrayAdapter.add(new CustomGridViewAdapterModel(bitmap, subjectName, description, difficulty, objectId));
+                subjectNameHolder.add(subjectName);
+                objectIdHolder.add(objectId);
+                descriptionHolder.add(description);
+                difficultyHolder.add(difficulty);
             }
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        GridView gridView = (GridView)findViewById(R.id.profile_image_gridview);
+        Log.e("ArrayAdapter", String.valueOf(arrayAdapter));
+        GridView gridView = (GridView) findViewById(R.id.profile_image_gridview);
         CustomGridViewAdapter customGridViewAdapter = new CustomGridViewAdapter(this, arrayAdapter);
         gridView.setAdapter(customGridViewAdapter);
-
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String clickedSubjectName, clickedObjectId, clickedDescription, clickedDifficulty;
+                clickedSubjectName = subjectNameHolder.get(position);
+                clickedObjectId = objectIdHolder.get(position);
+                clickedDescription = descriptionHolder.get(position);
+                clickedDifficulty= difficultyHolder.get(position);
+                Log.e("MainActivity_objectId", clickedObjectId);
+                Log.e("clickedSubjectName", clickedSubjectName);
+                Log.e("clickedDescription", clickedDescription);
+                Log.e("clickedDifficulty", clickedDifficulty);
+                Intent intent = new Intent(MainActivity.this, TimelineScreen.class);
+                intent.putExtra("objectId", clickedObjectId);
+                intent.putExtra("clickedSubjectName", clickedSubjectName);
+                intent.putExtra("clickedDescription", clickedDescription);
+                intent.putExtra("clickedDifficulty", clickedDifficulty);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

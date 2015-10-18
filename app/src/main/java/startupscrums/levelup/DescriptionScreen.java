@@ -37,7 +37,7 @@ public class DescriptionScreen extends AppCompatActivity {
 
         objectId = extras.getString("objectId");
         ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("SubjectSteps");
-        ParseObject pointer = ParseObject.createWithoutData("Subject", objectId);
+        ParseObject pointer = ParseObject.createWithoutData("CustomGridViewAdapterModel", objectId);
         parseQuery.whereEqualTo("SubjectPointer", pointer);
         try {
             List<ParseObject> find = parseQuery.find();

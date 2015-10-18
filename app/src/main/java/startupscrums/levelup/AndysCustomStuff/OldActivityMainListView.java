@@ -19,12 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import startupscrums.levelup.Adapters.CustomListviewAdapter;
-import startupscrums.levelup.Adapters.User;
+import startupscrums.levelup.Adapters.CustomListViewAdapterModel;
 import startupscrums.levelup.DescriptionScreen;
 import startupscrums.levelup.Logic.ParseInitialize;
 import startupscrums.levelup.R;
 
-public class OldActivityMainGridView extends AppCompatActivity {
+public class OldActivityMainListView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +34,8 @@ public class OldActivityMainGridView extends AppCompatActivity {
         // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         // setSupportActionBar(toolbar);
         getSupportActionBar().show();
-        final ArrayList<User> arrayAdapter = new ArrayList<>();
-        ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("Subject");
+        final ArrayList<CustomListViewAdapterModel> arrayAdapter = new ArrayList<>();
+        ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("CustomGridViewAdapterModel");
         try {
             List<ParseObject> findQuery = parseQuery.find();
             for (int i=0; i<findQuery.size(); i++){
@@ -43,7 +43,7 @@ public class OldActivityMainGridView extends AppCompatActivity {
                 String subjectName = parseObject.getString("subjectName");
                 String description = parseObject.getString("description");
                 String objectId = parseObject.getObjectId();
-                arrayAdapter.add(new User(subjectName, description, objectId));
+                arrayAdapter.add(new CustomListViewAdapterModel(subjectName, description, objectId));
             }
         } catch (ParseException e) {
             e.printStackTrace();

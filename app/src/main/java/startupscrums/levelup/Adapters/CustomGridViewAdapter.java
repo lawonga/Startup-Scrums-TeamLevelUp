@@ -15,18 +15,18 @@ import startupscrums.levelup.R;
 /**
  * Created by Andy W on 2015-10-17.
  */
-public class CustomGridViewAdapter extends ArrayAdapter<Subject> {
-    public CustomGridViewAdapter(Context context, ArrayList<Subject> subjects) {
-        super(context, 0, subjects);
+public class CustomGridViewAdapter extends ArrayAdapter<CustomGridViewAdapterModel> {
+    public CustomGridViewAdapter(Context context, ArrayList<CustomGridViewAdapterModel> customGridViewAdapterModels) {
+        super(context, 0, customGridViewAdapterModels);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        Subject subject = getItem(position);
+        CustomGridViewAdapterModel customGridViewAdapterModel = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.custom_circleimageview_adapter, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.custom_cardview_adapter, parent, false);
         }
         // Lookup views
         CircleImageView drawable_profilepic = (CircleImageView) convertView.findViewById(R.id.mentor_profile_image);
@@ -34,10 +34,10 @@ public class CustomGridViewAdapter extends ArrayAdapter<Subject> {
         TextView textview_description = (TextView) convertView.findViewById(R.id.course_description);
         TextView textview_difficulty = (TextView) convertView.findViewById(R.id.course_difficulty);
         // Populate the data into the template view using the data object
-        drawable_profilepic.setImageBitmap(subject.coursepic);
-        textview_name.setText(subject.name);
-        textview_description.setText(subject.description);
-        textview_difficulty.setText(subject.difficulty);
+        drawable_profilepic.setImageBitmap(customGridViewAdapterModel.coursepic);
+        textview_name.setText(customGridViewAdapterModel.name);
+        textview_description.setText(customGridViewAdapterModel.description);
+        textview_difficulty.setText(customGridViewAdapterModel.difficulty);
         // Return the completed view to render on screen
         return convertView;
     }

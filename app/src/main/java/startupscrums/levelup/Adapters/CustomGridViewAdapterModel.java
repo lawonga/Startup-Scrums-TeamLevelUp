@@ -11,10 +11,10 @@ Profile Picture: coursepic;
 Profile Name: name;
  */
 
-public class Subject {
+public class CustomGridViewAdapterModel {
     public Bitmap coursepic;
     public String name, description, difficulty, objectId;
-    public Subject(Bitmap coursepic, String name, String description, String difficulty, String objectId) {
+    public CustomGridViewAdapterModel(Bitmap coursepic, String name, String description, String difficulty, String objectId) {
         this.coursepic = coursepic;
         this.name = name;
         this.description = description;
@@ -26,6 +26,9 @@ public class Subject {
         return getBitmap();
     }
 
+    public String getName(){
+        return getName();
+    }
     public String getDescription(){
         return getDescription();
     }

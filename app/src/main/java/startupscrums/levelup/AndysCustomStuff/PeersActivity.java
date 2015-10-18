@@ -10,7 +10,7 @@ import android.widget.GridView;
 import java.util.ArrayList;
 
 import startupscrums.levelup.Adapters.CustomGridViewAdapter;
-import startupscrums.levelup.Adapters.Subject;
+import startupscrums.levelup.Adapters.CustomGridViewAdapterModel;
 import startupscrums.levelup.R;
 
 /**
@@ -21,10 +21,10 @@ public class PeersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.custom_gridview);
-        ArrayList<Subject> arrayAdapter = new ArrayList<>();
+        ArrayList<CustomGridViewAdapterModel> arrayAdapter = new ArrayList<>();
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.earth);
         /*for (int i=0; i<51; i++){
-            arrayAdapter.add(new Subject(bitmap, "PERSON "+i));
+            arrayAdapter.add(new CustomGridViewAdapterModel(bitmap, "PERSON "+i));
         }*/
         GridView gridView = (GridView)findViewById(R.id.profile_image_gridview);
         CustomGridViewAdapter customGridViewAdapter = new CustomGridViewAdapter(this, arrayAdapter);

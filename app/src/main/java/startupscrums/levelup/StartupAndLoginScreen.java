@@ -12,7 +12,7 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-import startupscrums.levelup.AndysCustomStuff.OldActivityMainGridView;
+import startupscrums.levelup.AndysCustomStuff.OldActivityMainListView;
 
 /**
  * Created by Andy W on 2015-10-17.
@@ -35,7 +35,7 @@ public class StartupAndLoginScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getApplicationContext(), OldActivityMainGridView.class));
+                startActivity(new Intent(getApplicationContext(), OldActivityMainListView.class));
 
                 /** Does facebook -- UNCOMMENT LATER **/
                 /*
@@ -46,11 +46,11 @@ public class StartupAndLoginScreen extends AppCompatActivity {
                             Log.d("MyApp", "The user cancelled the Facebook login.");
                             Toast.makeText(getApplicationContext(), "Login Cancelled", Toast.LENGTH_LONG).show();
                         } else if (user.isNew()) {
-                            Log.d("MyApp", "User signed up and logged in through Facebook!");
+                            Log.d("MyApp", "CustomListViewAdapterModel signed up and logged in through Facebook!");
                             finish();
                             startActivity(new Intent(getApplicationContext(), old_activity.class));
                         } else {
-                            Log.d("MyApp", "User logged in through Facebook!");
+                            Log.d("MyApp", "CustomListViewAdapterModel logged in through Facebook!");
                             finish();
                             startActivity(new Intent(getApplicationContext(), old_activity.class));
                         }

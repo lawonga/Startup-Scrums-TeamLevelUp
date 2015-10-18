@@ -1,10 +1,10 @@
 package startupscrums.levelup.Adapters;
 
 // Data Model for the listview
-public class User {
+public class CustomListViewAdapterModel {
     public String name, description, objectId;
 
-    public User (String name, String description, String objectId){
+    public CustomListViewAdapterModel(String name, String description, String objectId){
         this.name = name;
         this.description = description;
         this.objectId = objectId;

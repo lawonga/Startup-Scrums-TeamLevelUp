@@ -14,15 +14,15 @@ import startupscrums.levelup.R;
 /**
  * Created by Andy W on 2015-10-17.
  */
-public class CustomListviewAdapter extends ArrayAdapter<User> {
-    public CustomListviewAdapter(Context context, ArrayList<User> users) {
-        super(context, 0, users);
+public class CustomListviewAdapter extends ArrayAdapter<CustomListViewAdapterModel> {
+    public CustomListviewAdapter(Context context, ArrayList<CustomListViewAdapterModel> customListViewAdapterModels) {
+        super(context, 0, customListViewAdapterModels);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        User user = getItem(position);
+        CustomListViewAdapterModel customListViewAdapterModel = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.custom_listview_adapter, parent, false);
@@ -31,8 +31,8 @@ public class CustomListviewAdapter extends ArrayAdapter<User> {
         TextView textview_name = (TextView) convertView.findViewById(R.id.customlistview_textview_name);
         TextView textview_description = (TextView) convertView.findViewById(R.id.customlistview_textview_description);
         // Populate the data into the template view using the data object
-        textview_name.setText(user.name);
-        textview_description.setText(user.description);
+        textview_name.setText(customListViewAdapterModel.name);
+        textview_description.setText(customListViewAdapterModel.description);
         // Return the completed view to render on screen
         return convertView;
     }
