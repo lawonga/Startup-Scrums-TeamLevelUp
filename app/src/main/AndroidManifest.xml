@@ -32,7 +32,7 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".StartupScreen"
-            android:label="Startup"
+            android:label="LevelUP"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

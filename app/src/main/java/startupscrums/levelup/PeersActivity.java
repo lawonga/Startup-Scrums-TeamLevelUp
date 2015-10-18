@@ -24,7 +24,6 @@ public class PeersActivity extends AppCompatActivity {
         setContentView(R.layout.custom_gridview);
         ArrayList<Mentor> arrayAdapter = new ArrayList<>();
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.earth);
-        Log.e("BitmapID", bitmap.toString());
         for (int i=0; i<51; i++){
             arrayAdapter.add(new Mentor(bitmap, "PERSON "+i));
         }

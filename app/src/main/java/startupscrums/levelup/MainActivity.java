@@ -9,9 +9,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import startupscrums.levelup.Adapters.CustomListviewAdapter;
 import startupscrums.levelup.Adapters.User;
@@ -28,8 +31,18 @@ public class MainActivity extends AppCompatActivity {
         // setSupportActionBar(toolbar);
         getSupportActionBar().show();
         ArrayList<User> arrayAdapter = new ArrayList<>();
-        for (int i=0; i<51; i++){
-            arrayAdapter.add(new User("Hello", "World"));
+        ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("Subject");
+        try {
+            List<ParseObject> findQuery = parseQuery.find();
+            for (int i=0; i<findQuery.size(); i++){
+                ParseObject parseObject = findQuery.get(i);
+                String CourseName = parseObject.getString("subjectName");
+                String CourseDescription = parseObject.getString("description");
+                arrayAdapter.add(new User(CourseName, CourseDescription));
+
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
         CustomListviewAdapter customListviewAdapter = new CustomListviewAdapter(this, arrayAdapter);
         ListView listView = (ListView)findViewById(R.id.custom_listview_root);
@@ -37,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 1){
+                if (position == 1) {
                     Intent intent = new Intent(getApplicationContext(), PeersActivity.class);
                     startActivity(intent);
                 }

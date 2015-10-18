@@ -18,6 +18,7 @@ android {
         }
     }
 }
+repositories { mavenCentral() }
 
 dependencies {
     testCompile 'junit:junit:4.12'
@@ -26,8 +27,8 @@ dependencies {
     compile 'com.parse.bolts:bolts-android:1.+'
     compile project(':ParseUI-Login')
     compile project(':ParseUI-Widget')
-    compile 'com.facebook.android:facebook-android-sdk:4.0.1'
-    compile files('libs/ParseFacebookUtilsV4-1.10.0.jar')
+    // compile 'com.facebook.android:facebook-android-sdk:4.6.0'
+    compile files("$rootProject.projectDir/ParseUI-Login/libs/ParseFacebookUtilsV4-1.10.1.jar")
     compile 'de.hdodenhof:circleimageview:2.0.0'
 
 }
