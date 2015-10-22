@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import startupscrums.levelup.Adapters.CommunityMentor.CommunityFragment;
 import startupscrums.levelup.CommunityHelp.CourseFragment;
 
 /**
@@ -84,7 +85,8 @@ public class CourseScreen extends AppCompatActivity {
                 case 0:
                     return new CourseFragment();
                 case 1:
-                    return HelpCommunityScreen.PlaceholderFragment.newInstance(2);
+                    return new CommunityFragment();
+                    // return new MentorFragment();
             }
             return null;
         }

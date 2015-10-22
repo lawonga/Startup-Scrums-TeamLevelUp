@@ -18,7 +18,8 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-import startupscrums.levelup.CommunityHelp.HelpFragment;
+import startupscrums.levelup.Adapters.CommunityMentor.CommunityFragment;
+import startupscrums.levelup.CommunityHelp.CourseFragment;
 
 public class HelpCommunityScreen extends AppCompatActivity {
 
@@ -107,7 +108,7 @@ public class HelpCommunityScreen extends AppCompatActivity {
                 case 0:
                     return new CommunityFragment();
                 case 1:
-                    return new HelpFragment();
+                    return new CommunityFragment();
             }
             return null;
         }
