@@ -107,19 +107,19 @@ public class TimelineScreen extends AppCompatActivity{
         }
         for (int i = 0; i < localTimeLineArrayAdapter.size(); i++){
             if (i ==0){
-                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinegreen), localTimeLineArrayAdapter.get(i)));
+                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinegreen1), localTimeLineArrayAdapter.get(i)));
             } else if (i > 0 && i <6) {
-                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinegreenmiddle), localTimeLineArrayAdapter.get(i)));
+                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinegreenmiddle1), localTimeLineArrayAdapter.get(i)));
             } else if (i == 6){
-                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinemiddle), localTimeLineArrayAdapter.get(i)));
+                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinemiddle1), localTimeLineArrayAdapter.get(i)));
             } else if (i == 7){
-                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinebottom), localTimeLineArrayAdapter.get(i)));
+                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinebottom1), localTimeLineArrayAdapter.get(i)));
             } else if (i == 9){
-                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinetop), localTimeLineArrayAdapter.get(i)));
+                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinetop1), localTimeLineArrayAdapter.get(i)));
             } else if (i >9 && i <14){
-                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinemiddle), localTimeLineArrayAdapter.get(i)));
+                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinemiddle1), localTimeLineArrayAdapter.get(i)));
             } else if (i==localTimeLineArrayAdapter.size()){
-                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinebottom), localTimeLineArrayAdapter.get(i)));
+                timelineArrayList.add(new TimelineListViewAdapterModel(getResources().getDrawable(R.drawable.timelinebottom1), localTimeLineArrayAdapter.get(i)));
             }
 
         }
