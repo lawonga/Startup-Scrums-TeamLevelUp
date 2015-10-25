@@ -1,4 +1,4 @@
-# Team Levelup: - FIST-BUMP
+# Team Levelup: Project FIST-BUMP
 
 **Startup Scrums Hackathon**
 
